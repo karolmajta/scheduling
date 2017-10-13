@@ -1,0 +1,26 @@
+{
+    "variables": {
+        "courses": ["geography", "astronomy", "physics", "music", "gender studies", "philosophy", "mathematics"],
+        "required_courses": ["geography", "astronomy", "physics", "philosophy", "mathematics"],
+        "weeks": [
+            "Z1", "Z2", "Z3", "Z4", "Z5", "Z6", "Z7", "Z8", "Z9", "Z10", "Z11", "Z12", "Z13", "Z14", "Z15",
+            "L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9", "L10", "L11", "L12", "L13", "L14", "L15"
+        ],
+        "blocks": [
+            "GE1", "GE2", "GE3", "GE4", "GE5", "GE6", "GE7", "GE8", "GE9", "GE10",
+            "GE11", "GE12", "GE13", "GE14", "GE15",
+            "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10",
+            "A11", "A12", "A13", "A14", "A15",
+            "PS1", "PS2", "PS3", "PS4", "PS5", "PS6", "PS7", "PS8", "PS9", "PS10",
+            "PS11", "PS12", "PS13", "PS14", "PS15", "PS16", "PS17", "PS18", "PS19", "PS20",
+            "MU1", "MU2", "MU3", "MU4", "MU5", "MU6", "MU7", "MU8", "MU9", "MU10",
+            "MU11", "MU12", "MU13", "MU14", "MU15",
+            "GS1", "GS2", "GS3", "GS4", "GS5", "GS6", "GS7", "GS8", "GS9", "GS10",
+            "PH1", "PH2", "PH3", "PH4", "PH5", "PH6", "PH7", "PH8", "PH9", "PH10",
+            "PH11", "PH12", "PH13", "PH14", "PH15", "PH16", "PH17", "PH18", "PH19", "PH20",
+            "PH21", "PH22", "PH23", "PH24", "PH25", "PH26", "PH27", "PH28", "PH29", "PH30",
+            "MA1", "MA2", "MA3", "MA4", "MA5", "MA6", "MA7", "MA8", "MA9", "MA10",
+            "MA11", "MA12", "MA13", "MA14", "MA15", "MA16", "MA17", "MA18", "MA19", "MA20"
+        ]
+    }
+}
