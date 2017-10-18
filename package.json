@@ -1,0 +1,23 @@
+{
+  "name": "timetable-optimization",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karolmajta/scheduling.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karolmajta/scheduling/issues"
+  },
+  "homepage": "https://github.com/karolmajta/scheduling#readme",
+  "dependencies": {
+    "immutable": "^3.8.2"
+  }
+}
