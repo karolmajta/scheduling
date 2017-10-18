@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/karolmajta/scheduling#readme",
   "dependencies": {
-    "immutable": "^3.8.2"
+    "immutable": "^3.8.2",
+    "munkres-js": "^1.2.2"
   }
 }

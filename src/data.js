@@ -68,10 +68,26 @@ const blocks = I.List.of(
 
 const slots = I.Set(blocks.flatMap(b => I.Range().take(b.availableSlots).map(i => s(i+1, b))));
 
-const users = I.List(I.Range().take(276));
-const subjects = I.Set.of(I1, I2, C, R, P, M, G, S);
+const generateAssignment = function (availableSlots) {
+  let userAvailableSlots = availableSlots;
+  let possibleAssignment = I.List();
+  let allTakenModules = I.Set();
+  let allTakenSubjects = I.Set();
 
-const generateAssignments = function () {
+  while (userAvailableSlots.size > 0) {
+    let pickedSlot = userAvailableSlots.first();
+    allTakenModules = allTakenModules.union(pickedSlot.block.modules);
+    allTakenSubjects = allTakenSubjects.add(pickedSlot.block.subject);
+    possibleAssignment = possibleAssignment.push(pickedSlot);
+    userAvailableSlots = userAvailableSlots.filter((s) => {
+      return !allTakenSubjects.has(s.block.subject) && allTakenModules.intersect(s.block.modules).size == 0;
+    });
+  }
+
+  return [possibleAssignment, availableSlots.shift()];
+};
+
+const generateAssignments = function (users) {
   let assignments = I.Map();
   let availableSlots = I.List(slots).sort((s1, s2) => {
     if (s1.block.modules.size > s2.block.modules.size) {
@@ -82,35 +98,20 @@ const generateAssignments = function () {
       return Math.random();
     }
   });
-    
-  users.forEach(user => {
-    let assignment = I.List();
-    
-    
-        let userAvailableSlots = I.List(availableSlots);
-        let possibleAssignment = I.List();
-        while (userAvailableSlots.size > 0) {
-          let pickedSlot = userAvailableSlots.first();
-          possibleAssignment = possibleAssignment.push(pickedSlot);
-          userAvailableSlots = userAvailableSlots.filter((s) => {
-            let allTakenModules = I.Set();
-       	    possibleAssignment.forEach((a) => allTakenModules = allTakenModules.union(a.block.modules));
-	    let allTakenSubjects = I.Set(possibleAssignment.map(a => a.block.subject));
-	    return allTakenModules.intersect(s.block.modules).size == 0 && !allTakenSubjects.has(s.block.subject);
-          });
-        }
-        availableSlots = availableSlots.shift();
-        assignment = possibleAssignment;
 
+      
+  users.forEach(user => {
+    [assignment, nextAvailableSlots] = generateAssignment(availableSlots);
     assignments = assignments.set(user, assignment);
+    availableSlots = nextAvailableSlots;
   });
 
   return assignments;
-}
+};
 
 module.exports = {
-  slots: slots,
-  users: users,
-  subjects: subjects,
-  generateAssignments: generateAssignments,
+  blocks: blocks,
+  subjects: I.Set.of(I1, I2, C, R, P, M, G, S),
+  generateAssignment: generateAssignment,
+  generateAssignments: generateAssignments
 };
